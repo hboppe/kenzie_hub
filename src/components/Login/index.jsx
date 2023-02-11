@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 
 
-const Login = ({setUser}) => {
+const Login = ({setLoading}) => {
     
     const {register} = useForm();
 
@@ -17,7 +17,7 @@ const Login = ({setUser}) => {
             <Main>
             <section>
                     <h3 className='title2'>Login</h3>
-                    <Form setUser={setUser}/>
+                    <Form />
                     <p className='paragAccount headlineBold'>Ainda não possui uma conta?</p>
                     <Link to='register'>Cadastre-se</Link>
             </section>

@@ -2,7 +2,7 @@ import Section from "./styles";
 
 const Technologies = ({user}) => {
 
-    console.log(user)
+    // console.log(user)
 
     return (
         <Section>

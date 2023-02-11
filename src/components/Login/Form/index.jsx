@@ -15,6 +15,13 @@ const Form = ({setUser}) => {
         })
     }
 
+    const showErrorToast = () => {
+        toast.error('Usuário ou senha incorretos', {
+            position: "top-right",
+            autoClose: 3000,
+        })
+    }
+
     const navigate = useNavigate();
 
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -28,13 +35,16 @@ const Form = ({setUser}) => {
             
             localStorage.setItem('@KenzieHub:token', JSON.stringify(response.data.token))
             localStorage.setItem('@KenzieHub:userId', JSON.stringify(response.data.user.id))
-            setUser(response.data.user)
             navigate('dashboard')
             showToast()
+            console.log()
 
 
         } catch (error) {
-            console.log(error)
+            
+            if(error.response.status === 401){
+                showErrorToast()
+            }
 
         }
     }

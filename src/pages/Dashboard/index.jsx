@@ -32,7 +32,7 @@ const Dashboard = ({user, setUser}) => {
                 const getUser =  await api.get(`/users/${userId}`);
                 const getUserResponse = await getUser.data;
 
-                setUser({...getUserResponse})
+                // setUser({...getUserResponse})
 
                 console.log(getUserResponse)
 
@@ -40,11 +40,11 @@ const Dashboard = ({user, setUser}) => {
                 
             } catch (error) {
                 console.log(`Erro aqui`, error)
-                if(error.response.status === 404){
+                // if(error.response.status === 404){
                     
-                    navigate('/')
-                    showToast()  
-                }
+                //     navigate('/')
+                //     showToast()  
+                // }
             }
         }
 
@@ -55,8 +55,8 @@ const Dashboard = ({user, setUser}) => {
     return (
         <>
             <Header buttonText='Sair' path='/' handleClick={logout}/>
-            <UserInfo user={user}/>
-            <Technologies tech={user}/>
+            <UserInfo />
+            <Technologies />
         </>
     )
 }

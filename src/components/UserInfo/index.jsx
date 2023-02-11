@@ -1,7 +1,7 @@
-const UserInfo = ({user}) => {
+const UserInfo = () => {
     return (
         <div>
-            <h1 className="title1">Olá, {user.name}</h1>
+            <h1 className="title1">Olá, </h1>
         </div>
     )
 }

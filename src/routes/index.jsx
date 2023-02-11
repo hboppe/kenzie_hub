@@ -8,7 +8,7 @@ import Dashboard from '../pages/Dashboard';
 
 const AppRoutes = () => {
 
-    const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(false);
 
     return (
         <Routes>
@@ -17,11 +17,11 @@ const AppRoutes = () => {
             </Route>
             <Route path='/' element={<Home/>}>
                
-                <Route index element={<Login setUser={setUser}/>}/>
+                <Route index element={<Login setLoading={setLoading}/>}/>
                 <Route path='register' element={<Register/>}/>
                 
             </Route>
-            <Route path='/dashboard' element={<Dashboard user={user} setUser={setUser}/>}/>
+            <Route path='/dashboard' element={<Dashboard />}/>
             
             
         </Routes>
