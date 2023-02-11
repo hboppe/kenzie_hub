@@ -3,9 +3,11 @@ import StyledHome from "./styles"
 
 const Home = () => {
     return (
-        <StyledHome>
+        <>
             <Outlet/>
-        </StyledHome>
+        
+        </>
+        
     )
 }
 

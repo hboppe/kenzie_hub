@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         list-style: none;
     }
+
     :root {
 
         //Primary Palette
@@ -34,11 +35,13 @@ const GlobalStyle = createGlobalStyle`
 
     body { 
         font-family: 'Inter', sans-serif;
+        background-color: var(--grey-4);
     }
 
     .title1 {
         font-size: 1.125rem;
         font-weight: bold;
+        color: var(--grey-0);
     }
 
     .title2 {
@@ -64,6 +67,8 @@ const GlobalStyle = createGlobalStyle`
         font-size: 0.75rem;
         font-style: italic;
     }
+
+    
 `
 
 export default GlobalStyle;
