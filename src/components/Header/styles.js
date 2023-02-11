@@ -6,6 +6,9 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: center;
     
+    &.withButton{
+        background-color: red;
+    }
 
     a {
         background-color: var(--grey-3);

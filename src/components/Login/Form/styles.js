@@ -21,7 +21,7 @@ const StyledForm = styled.form`
         border-radius: 4px;
         background-color: #343B41;
         border: none;
-        color: #868E96;
+        color: var(--grey-0);
     }
 
 
