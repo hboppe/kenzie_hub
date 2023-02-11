@@ -1,23 +1,29 @@
 import styled from "styled-components";
 
-const StyledSection = styled.section`
-    background-color: var(--grey-3);
-    color: var(--grey-0);
-    margin: 0 12px;
-    padding: 33px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
-    align-items: center;
-    border-radius: 4px;
+const Main = styled.main`
+    margin: 0 0.75rem;
 
-    .paragAccount {
+    section {
+        background-color: var(--grey-3);
+        color: var(--grey-0);
+        margin: 0 12px;
+        padding: 33px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        align-items: center;
+        border-radius: 4px;
+        max-width: 369px;
+        margin: auto;
+    }
+
+    section > p.paragAccount {
         color: var(--grey-1);
         
 
     }
 
-    a {
+    section > a {
         text-decoration: none;
         background-color: var(--grey-1);
         width: 100%;
@@ -28,10 +34,11 @@ const StyledSection = styled.section`
         transition: .5s ease-in-out;
     }
 
-    a:hover {
+    section > a:hover {
         background-color: var(--grey-2);
     }
-
 `
 
-export default StyledSection;
+
+
+export default Main;
