@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.svg'
 import StyledHeader from './styles';
 
