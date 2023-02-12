@@ -2,15 +2,48 @@ import { useForm } from "react-hook-form";
 import Form from "./styles"
 import {yupResolver} from '@hookform/resolvers/yup'
 import registerSchema from '../../../validations/RegisterFormSchema'
+import axios from 'axios';
+import api from '../../../services/api.js'
+import {useNavigate} from 'react-router-dom'
+import {toast} from 'react-toastify';
 
 const RegisterForm = () => {
+
+    const showToast = () => {
+        toast.success('Cadastro realizado com sucesso', {
+            autoClose: 3000,
+            theme: 'dark'
+        })
+    }
+
+    const navigate = useNavigate()
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(registerSchema)
     });
 
-    const registerUser = (data) => {
-        console.log(data)
+    const registerUser = async (data) => {
+        // console.log(data)
+
+        try {
+            const response = await api.post('/users', data)
+            showToast()
+            navigate('/')
+
+        } catch (error) {
+            if(error.response.data.message === "Email already exists"
+            ) {
+                toast.error('Email já cadastrado', {
+                    autoClose: 3000,
+                    theme: 'dark'
+                })
+            } else {
+                toas.error('Erro ao realizar o cadastro. Por favor, tente novamente', {
+                    autoClose: 3000,
+                    theme: 'dark'
+                })
+            }
+        }
     }
 
 
