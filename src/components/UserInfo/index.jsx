@@ -1,11 +1,14 @@
+import Section from "./styles";
+
 const UserInfo = ({user}) => {
     // console.log(user)
     return (
-        <div>
-            
+        <Section>
             <h1 className="title1">Olá,{user.name} </h1>
-            <p>{user["course_module"]}</p>
-        </div>
+            <p className="headline">{user["course_module"]}</p>
+
+        </Section>
+        
     )
 }
 

@@ -3,8 +3,8 @@ import Li from "./style";
 const TechCard = ({props: {title, status}}) => {
     return (
         <Li>
-            <p>{title}</p>
-            <p>{status}</p>
+            <h3 className="title3">{title}</h3>
+            <p className="headline">{status}</p>
         </Li>
     )
 }

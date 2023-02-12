@@ -56,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
 
     .headline {
         font-size: 0.75rem;
+        
     }
 
     .headlineBold {
