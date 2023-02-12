@@ -13,7 +13,7 @@ const Main = styled.main`
         gap: 17px;
         align-items: center;
         border-radius: 4px;
-        max-width: 369px;
+        max-width: 370px;
         margin: auto;
     }
 

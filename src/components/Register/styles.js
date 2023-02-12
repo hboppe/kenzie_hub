@@ -1,31 +1,22 @@
 import styled from "styled-components";
 
-const RegisterSection = styled.section`
-    
-    display: flex;
-    justify-content: center;
-    margin: 0 12px;
+const Main = styled.main`
+    margin: 0 0.75rem 2rem;
 
-
-    div.sectionContainer {
-        color: var(--grey-0);
+    section {
         background-color: var(--grey-3);
+        color: var(--grey-0);
+        margin: 0 12px;
+        padding: 33px 18px;
         display: flex;
         flex-direction: column;
-        /* width: fit-content; */
-        padding: 2.1875rem 1.0625rem 1.25rem;
+        gap: 17px;
         align-items: center;
-        gap: 18px;
         border-radius: 4px;
         max-width: 370px;
+        margin: auto;
     }
 
-    div.sectionContainer > small {
-        color: var(--grey-1);
-    }
-    /* div {
-        
-    } */
 `
 
-export default RegisterSection;
+export default Main;
