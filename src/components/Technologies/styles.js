@@ -3,9 +3,16 @@ import styled from "styled-components";
 const Section = styled.section`
     color: var(--grey-0);  
     padding: 0px 0.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    
+
+    div.sectionContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 780px;
+        margin: 0 auto;
+
+    }
     
     div.techContainer {
         display: flex;
@@ -35,6 +42,12 @@ const Section = styled.section`
         display: flex;
         flex-direction: column;
         gap: 16px;
+    }
+
+    @media (min-width: 600px){
+        div.sectionContainer {
+            max-width: ;
+        }
     }
 `
 
