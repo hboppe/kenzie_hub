@@ -5,6 +5,7 @@ import LoginFormSchema from "../../../validations/LoginFormSchema";
 import api from '../../../services/api.js'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import Input from "../../Input";
 
 
 const Form = ({setLoading}) => {
@@ -53,17 +54,33 @@ const Form = ({setLoading}) => {
 
     return (
         <StyledForm onSubmit={handleSubmit(loginUser)}>
-            <div>
+            {/* <div>
                 <label htmlFor="email">Email</label>
                 <input type="text" {...register('email')} />
                 <p>{errors.email?.message}</p>
-            </div>
+            </div> */}
 
-            <div>
+            <Input inputName='email' 
+                placeholder='Digite seu email aqui'
+                label='Email' 
+                type='text'
+                error={errors.email?.message}
+                {...register('email')}
+            />
+
+            <Input inputName='password' 
+                placeholder='Digite sua senha aqui'
+                label='Senha' 
+                type='password'
+                error={errors.password?.message}
+                {...register('password')}
+            />
+
+            {/* <div>
                 <label htmlFor="password">Senha</label>
                 <input type="password" {...register('password')}/>
                 <p>{errors.password?.message}</p>
-            </div>
+            </div> */}
 
             <button type="submit">Entrar</button>
         </StyledForm>
