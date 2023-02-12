@@ -1,5 +1,3 @@
-import Logo from '../../assets/Logo.svg';
-import { useForm } from "react-hook-form";
 import Main from './styles';
 import Form from './Form';
 import { Link } from 'react-router-dom';

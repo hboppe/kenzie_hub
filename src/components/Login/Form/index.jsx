@@ -51,14 +51,8 @@ const Form = ({setLoading}) => {
     }
 
 
-
     return (
         <StyledForm onSubmit={handleSubmit(loginUser)}>
-            {/* <div>
-                <label htmlFor="email">Email</label>
-                <input type="text" {...register('email')} />
-                <p>{errors.email?.message}</p>
-            </div> */}
 
             <Input inputName='email' 
                 placeholder='Digite seu email aqui'
@@ -75,12 +69,6 @@ const Form = ({setLoading}) => {
                 error={errors.password?.message}
                 {...register('password')}
             />
-
-            {/* <div>
-                <label htmlFor="password">Senha</label>
-                <input type="password" {...register('password')}/>
-                <p>{errors.password?.message}</p>
-            </div> */}
 
             <button type="submit">Entrar</button>
         </StyledForm>

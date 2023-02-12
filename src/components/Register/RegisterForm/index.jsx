@@ -6,6 +6,8 @@ import axios from 'axios';
 import api from '../../../services/api.js'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify';
+import Input from "../../Input";
+import Select from "../../Select";
 
 const RegisterForm = () => {
 
@@ -45,57 +47,69 @@ const RegisterForm = () => {
         }
     }
 
-
+    const options = [
+        {id: 1, value: 'Primeiro Módulo (Frontend iniciante)', text: 'Primeiro Modulo'},
+        {id: 2,value: 'Segundo Módulo (Frontend intermediario)', text: 'Segundo Modulo'},
+        {id: 3,value: 'Terceiro Módulo (Frontend avançado)', text: 'Terceiro Modulo'}
+    ]
 
     return (
         <Form onSubmit={handleSubmit(registerUser)}>
-            <div>
-                <label htmlFor="name">Nome</label>
-                <input type="text" placeholder="Digite seu nome aqui" {...register('name')}/>
-                <small>{errors.name?.message}</small>
-            </div>
-            <div>
-                <label htmlFor="email">Email</label>
-                <input type="text" placeholder="Digite seu email aqui" {...register('email')}/>
-                <small>{errors.email?.message}</small>
 
-            </div>
-            <div>
-                <label htmlFor="password">Senha</label>
-                <input type="password" placeholder="Digite sua senha aqui" {...register('password')}/>
-                <small>{errors.password?.message}</small>
+            <Input inputName='name' 
+                placeholder='Digite seu nome aqui'
+                label='Nome' 
+                type='text'
+                error={errors.name?.message}
+                {...register('name')}
+            />
 
-            </div>
-            <div>
-                <label htmlFor="passwordConfig">Confirmar senha</label>
-                <input type="password" placeholder="Confirme sua senha" {...register('passwordConfig')}/>
-                <small>{errors.passwordConfig?.message}</small>
+            <Input inputName='email' 
+                placeholder='Digite seu email aqui'
+                label='Email' 
+                type='text'
+                error={errors.email?.message}
+                {...register('email')}
+            />
 
-            </div>
+            <Input inputName='password' 
+                placeholder='Digite sua senha aqui'
+                label='Senha' 
+                type='password'
+                error={errors.password?.message}
+                {...register('password')}
+            />
 
-            <div>
-                <label htmlFor="bio">Bio</label>
-                <input type="text" placeholder="False sobre você" {...register('bio')}/>
-                <small>{errors.bio?.message}</small>
+            <Input inputName='passwordConfig' 
+                placeholder='Confirme sua senha'
+                label='Confirmar senha' 
+                type='password'
+                error={errors.passwordConfig?.message}
+                {...register('passwordConfig')}
+            />
 
-            </div>
-            <div>
-                <label htmlFor="contact">Contato</label>
-                <input type="text" placeholder="Opçao de contato" {...register('contact')}/>
-                <small>{errors.contact?.message}</small>
+            <Input inputName='bio' 
+                placeholder='False sobre você'
+                label='Bio' 
+                type='text'
+                error={errors.bio?.message}
+                {...register('bio')}
+            />
 
+            <Input inputName='contact' 
+                placeholder='Opçao de contato'
+                label='Contato' 
+                type='text'
+                error={errors.contact?.message}
+                {...register('contact')}
+            />
 
-            </div>
-            <div>
-                <label htmlFor="course_module">Selecionar modulo</label>
-                <select id="course_module" {...register('course_module')}>
-                    <option value="Primeiro Módulo (Frontend iniciante)">Primeiro Modulo</option>
-                    <option value="Segundo Módulo (Frontend intermediario)">Segundo Modulo</option>
-                    <option value="Terceiro Módulo (Frontend avançado)">Terceiro Modulo</option>
+            <Select options={options} 
+                label='Selecionar um módulo'
+                selectName='course_module'
+                error={errors['course_module']?.message}
+                {...register('course_module')}/>
 
-                </select>
-                <small>{errors['course_module']?.message}</small>
-            </div>
             <button type="submit">Cadastrar</button>
         </Form>
     )
