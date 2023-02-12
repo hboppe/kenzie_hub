@@ -8,13 +8,13 @@ const Register = () => {
 
     return (
         <>
-            <Header/>
+            <Header buttonText='Voltar' path='/' headerClassName='withButton'/>
             <RegisterSection>
-                <h2>Crie sua conta</h2>
-                <small>Rapido e grátis, vamos nessa</small>
-                <RegisterForm>
-
-                </RegisterForm>
+                <div className="sectionContainer">
+                    <h1 className="title1">Crie sua conta</h1>
+                    <small className="headline">Rapido e grátis, vamos nessa</small>
+                    <RegisterForm/>
+                </div>
             </RegisterSection>
         </>
     )
