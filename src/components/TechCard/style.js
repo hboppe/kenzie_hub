@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Li = styled.li`
     background-color: var(--grey-4);
-    padding: 12px;
+    padding: 15px;
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
