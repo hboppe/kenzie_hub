@@ -38,7 +38,6 @@ const Form = ({setLoading}) => {
             navigate('dashboard')
             setLoading(true)
             showToast()
-            // console.log()
 
 
         } catch (error) {

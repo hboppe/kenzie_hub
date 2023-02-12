@@ -1,7 +1,7 @@
 import Section from "./styles";
 
 const UserInfo = ({user}) => {
-    // console.log(user)
+    
     return (
         <Section>
             <div>

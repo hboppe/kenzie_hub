@@ -15,7 +15,7 @@ const Technologies = ({user, loading}) => {
                     {user && user.techs && user.techs.length !== 0 ? user.techs.map(item => <TechCard  key={item.id}props={item}/>)
                 
                     : <p>No momento, você nao possui tecnologias cadastradas.</p> }
-                    {/* {user?.techs && user.techs.map(item => <TechCard  key={item.id}props={item}/>)} */}
+                    
                 
                 </ul>
             </div>

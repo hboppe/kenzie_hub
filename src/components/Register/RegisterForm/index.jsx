@@ -23,7 +23,6 @@ const RegisterForm = () => {
     });
 
     const registerUser = async (data) => {
-        // console.log(data)
 
         try {
             const response = await api.post('/users', data)
