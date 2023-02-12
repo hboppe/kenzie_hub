@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 
-const Form = ({setUser}) => {
+const Form = ({setLoading}) => {
     const showToast = () => {
         toast.success('Login realizado com sucesso', {
             position: "top-right",
@@ -36,8 +36,9 @@ const Form = ({setUser}) => {
             localStorage.setItem('@KenzieHub:token', JSON.stringify(response.data.token))
             localStorage.setItem('@KenzieHub:userId', JSON.stringify(response.data.user.id))
             navigate('dashboard')
+            setLoading(true)
             showToast()
-            console.log()
+            // console.log()
 
 
         } catch (error) {

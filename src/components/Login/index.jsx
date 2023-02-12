@@ -8,7 +8,7 @@ import Header from '../Header';
 
 const Login = ({setLoading}) => {
     
-    const {register} = useForm();
+    // const {register} = useForm();
 
     return (
         <>
@@ -17,7 +17,7 @@ const Login = ({setLoading}) => {
             <Main>
             <section>
                     <h3 className='title2'>Login</h3>
-                    <Form />
+                    <Form setLoading={setLoading}/>
                     <p className='paragAccount headlineBold'>Ainda não possui uma conta?</p>
                     <Link to='register'>Cadastre-se</Link>
             </section>

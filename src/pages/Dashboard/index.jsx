@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useNavigation } from "react-router-dom";
 import Header from "../../components/Header";
 import UserInfo from "../../components/UserInfo";
@@ -6,7 +6,10 @@ import api from "../../services/api";
 import { toast } from "react-toastify";
 import Technologies from "../../components/Technologies";
 
-const Dashboard = ({user, setUser}) => {
+const Dashboard = () => {
+
+    const [loading, setLoading] = useState(false);
+    const [user, setUser] = useState({});
 
     const logout = () => {
         localStorage.clear();
@@ -29,14 +32,20 @@ const Dashboard = ({user, setUser}) => {
         const getUserInfos = async () => {
 
             try {
+                setLoading(true)
                 const getUser =  await api.get(`/users/${userId}`);
-                const getUserResponse = await getUser.data;
+                const getUserResponse =  await getUser.data;
+                setUser(getUser.data)
+                // console.log({...getUser.data})
+                // console.log(user)
+
+
 
                 // setUser({...getUserResponse})
 
-                console.log(getUserResponse)
+                // console.log(getUserResponse)
 
-                console.log(`entrou no TRY`, getUser.data)
+                // console.log(`entrou no TRY`, getUser.data)
                 
             } catch (error) {
                 console.log(`Erro aqui`, error)
@@ -45,6 +54,9 @@ const Dashboard = ({user, setUser}) => {
                 //     navigate('/')
                 //     showToast()  
                 // }
+            } finally {
+                setLoading(false)
+                // console.log(user)
             }
         }
 
@@ -52,11 +64,22 @@ const Dashboard = ({user, setUser}) => {
 
     }, [])
 
+    if(loading) {
+        return <p>Carregando...</p>
+    }
+
+    
+
     return (
         <>
-            <Header buttonText='Sair' path='/' handleClick={logout}/>
-            <UserInfo />
-            <Technologies />
+            <Header buttonText='Sair' path='/' handleClick={logout} headerClassName='withButton' linkClassName='headline'/>
+            {loading ? <p>Carregando...</p> : 
+
+            <>
+                <UserInfo user={user}/>
+                <Technologies user={user} loading={loading}/>
+            </>
+            }
         </>
     )
 }

@@ -1,9 +1,10 @@
 import Li from "./style";
 
-const TechCard = () => {
+const TechCard = ({props: {title, status}}) => {
     return (
         <Li>
-            
+            <p>{title}</p>
+            <p>{status}</p>
         </Li>
     )
 }

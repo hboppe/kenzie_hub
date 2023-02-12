@@ -1,8 +1,8 @@
+import TechCard from "../TechCard";
 import Section from "./styles";
 
-const Technologies = ({user}) => {
+const Technologies = ({user, loading}) => {   
 
-    // console.log(user)
 
     return (
         <Section>
@@ -11,10 +11,11 @@ const Technologies = ({user}) => {
                 <button>+</button>
             </div>
             <ul>
-                {/* {user.tech.length === 0 
-                    ? (<p>Você não tem technologias novas no momento</p>)
-                    : console.log())
-                } */}
+                {user && user.techs && user.techs.length !== 0 ? user.techs.map(item => <TechCard  key={item.id}props={item}/>)
+                 
+                : <p>No momento, você nao possui tecnologias cadastradas.</p> }
+                {/* {user?.techs && user.techs.map(item => <TechCard  key={item.id}props={item}/>)} */}
+            
             </ul>
 
         </Section>
