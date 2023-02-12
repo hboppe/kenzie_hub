@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-    padding: 5.0625rem 10px 1.25rem;
+    padding: 5.0625rem 0.625rem 1.25rem;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -9,6 +9,7 @@ const StyledHeader = styled.header`
     max-width: 780px;
     
     &.withButton{
+        padding: 1.25rem 0.625rem 2rem;
         justify-content: space-between;
         /* margin-left: 10px;
         margin-right: 10px; */
@@ -25,6 +26,13 @@ const StyledHeader = styled.header`
 
     a:hover {
         background-color: var(--grey-1);
+    }
+
+    @media (min-width: 600px){
+        &.withButton{
+            padding: 1.875rem 0.625rem;
+
+        }
     }
 
 `
