@@ -9,20 +9,7 @@ import Input from "../../Input";
 
 
 const Form = ({setLoading}) => {
-    const showToast = () => {
-        toast.success('Login realizado com sucesso', {
-            position: "top-right",
-            autoClose: 3000,
-        })
-    }
-
-    const showErrorToast = () => {
-        toast.error('Usuário ou senha incorretos', {
-            position: "top-right",
-            autoClose: 3000,
-        })
-    }
-
+    
     const navigate = useNavigate();
 
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -38,13 +25,15 @@ const Form = ({setLoading}) => {
             localStorage.setItem('@KenzieHub:userId', JSON.stringify(response.data.user.id))
             navigate('dashboard')
             setLoading(true)
-            showToast()
+            toast.success('Login realizado com sucesso')
 
 
         } catch (error) {
             
             if(error.response.status === 401){
-                showErrorToast()
+                toast.error('Usuário ou senha incorretos')
+            } else {
+                toast.error('Erro ao realizar a requisiçao. Por favor, tente novamente')
             }
 
         }

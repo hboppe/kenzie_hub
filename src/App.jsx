@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <GlobalStyle/>
       <AppRoutes/>
-      <ToastContainer theme='dark' autoClose={8000}/>
+      <ToastContainer theme='dark' autoClose={3000} position='top-right'/>
     </div>
   )
 }
