@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import GlobalStyle from './GlobalStyles/styles'
 import AppRoutes from './routes'
 import { ToastContainer } from 'react-toastify';
@@ -11,7 +9,7 @@ function App() {
     <div className="App">
       <GlobalStyle/>
       <AppRoutes/>
-      <ToastContainer/>
+      <ToastContainer theme='dark' autoClose={8000}/>
     </div>
   )
 }

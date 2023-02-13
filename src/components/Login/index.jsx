@@ -6,12 +6,10 @@ import Header from '../Header';
 
 const Login = ({setLoading}) => {
     
-    // const {register} = useForm();
 
     return (
         <>
             <Header/>
-            {/* <img src={Logo} alt="Kenzie Hub logo" /> */}
             <Main>
             <section>
                     <h3 className='title2'>Login</h3>
