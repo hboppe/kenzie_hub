@@ -2,11 +2,19 @@ import StyledForm from "./styles";
 import Input from "../../Input";
 import {useContext} from 'react'
 import {UserContext} from '../../../contexts/UserContext'
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import LoginFormSchema from "../../../validations/LoginFormSchema";
 
 
 const Form = () => {
 
-    const {loginUser, handleSubmit, errors, register} = useContext(UserContext);
+    const {loginUser} = useContext(UserContext);
+
+
+    const {register, handleSubmit, formState: {errors}} = useForm({
+        resolver: yupResolver(LoginFormSchema)
+    });
 
 
     return (

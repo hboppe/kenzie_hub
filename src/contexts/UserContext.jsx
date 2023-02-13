@@ -10,13 +10,7 @@ const UserContext = createContext({});
 
 const UserContextProvider = ({children}) => {
 
-
-    const {register, handleSubmit, formState: {errors}} = useForm({
-        resolver: yupResolver(LoginFormSchema)
-    });
-
     const navigate = useNavigate();
-
 
     const loginUser = async (data) => {
         
@@ -45,9 +39,6 @@ const UserContextProvider = ({children}) => {
     return (
         <UserContext.Provider value={{
             loginUser,
-            register,
-            handleSubmit,
-            errors
         }}>
             {children}
         </UserContext.Provider>

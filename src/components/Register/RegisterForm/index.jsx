@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import Form from "./styles"
 import {yupResolver} from '@hookform/resolvers/yup'
 import registerSchema from '../../../validations/RegisterFormSchema'
-import axios from 'axios';
 import api from '../../../services/api.js'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify';
