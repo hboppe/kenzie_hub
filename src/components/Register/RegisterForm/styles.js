@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { defaultInputForm } from "../../../GlobalStyles/styles";
 
 const Form = styled.form`
 
@@ -48,6 +49,8 @@ const Form = styled.form`
     small{
         color: var(--grey-1);
     }
+
+    ${defaultInputForm}
 `
 
 export default Form;

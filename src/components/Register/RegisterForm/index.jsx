@@ -7,6 +7,8 @@ import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-toastify';
 import Input from "../../Input";
 import Select from "../../Select";
+import { useContext } from "react";
+import { UserContext } from "../../../contexts/UserContext";
 
 const RegisterForm = () => {
 
@@ -16,22 +18,7 @@ const RegisterForm = () => {
         resolver: yupResolver(registerSchema)
     });
 
-    const registerUser = async (data) => {
-
-        try {
-            const response = await api.post('/users', data)
-            toast.success('Cadastro realizado com sucesso')
-            navigate('/')
-
-        } catch (error) {
-            if(error.response.data.message === "Email already exists"
-            ) {
-                toast.error('Email já cadastrado. Por favor, tente o login')
-            } else {
-                toast.error('Erro ao realizar o cadastro. Por favor, tente novamente')
-            }
-        }
-    }
+    const {registerUser} = useContext(UserContext)
 
     const options = [
         {id: 1, value: 'Primeiro Módulo (Frontend iniciante)', text: 'Primeiro Modulo'},

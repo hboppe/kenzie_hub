@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { defaultInputForm } from "../../../GlobalStyles/styles";
 
 const StyledForm = styled.form`
     width: 100%;
@@ -45,14 +46,7 @@ const StyledForm = styled.form`
         background-color: var(--color-primary-focus);
     }
 
-    input:-webkit-autofill,
-    input:-webkit-autofill:hover, 
-    input:-webkit-autofill:focus, 
-    input:-webkit-autofill:active{
-        -webkit-box-shadow: 0 0 0 30px #343B41 inset !important;
-        -webkit-text-fill-color: var(--grey-0) !important;
-        -webkit
-    }
+    ${defaultInputForm}
 
     small {
         color: var(--grey-1);
