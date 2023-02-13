@@ -11,13 +11,6 @@ import Select from "../../Select";
 
 const RegisterForm = () => {
 
-    const showToast = () => {
-        toast.success('Cadastro realizado com sucesso', {
-            autoClose: 3000,
-            theme: 'dark'
-        })
-    }
-
     const navigate = useNavigate()
 
     const {register, handleSubmit, formState: {errors}} = useForm({
@@ -28,21 +21,15 @@ const RegisterForm = () => {
 
         try {
             const response = await api.post('/users', data)
-            showToast()
+            toast.success('Cadastro realizado com sucesso')
             navigate('/')
 
         } catch (error) {
             if(error.response.data.message === "Email already exists"
             ) {
-                toast.error('Email já cadastrado', {
-                    autoClose: 3000,
-                    theme: 'dark'
-                })
+                toast.error('Email já cadastrado. Por favor, tente o login')
             } else {
-                toas.error('Erro ao realizar o cadastro. Por favor, tente novamente', {
-                    autoClose: 3000,
-                    theme: 'dark'
-                })
+                toast.error('Erro ao realizar o cadastro. Por favor, tente novamente')
             }
         }
     }
