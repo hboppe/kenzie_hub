@@ -8,7 +8,6 @@ import Dashboard from '../pages/Dashboard';
 
 const AppRoutes = () => {
 
-    const [loading, setLoading] = useState(false);
     // const [user2, setUser2] = useState();
 
     return (
