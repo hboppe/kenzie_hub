@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../Header';
 
 
-const Login = ({setLoading}) => {
+const Login = () => {
     
 
     return (
@@ -13,7 +13,7 @@ const Login = ({setLoading}) => {
             <Main>
             <section>
                     <h3 className='title2'>Login</h3>
-                    <Form setLoading={setLoading}/>
+                    <Form/>
                     <p className='paragAccount headlineBold'>Ainda não possui uma conta?</p>
                     <Link to='register'>Cadastre-se</Link>
             </section>

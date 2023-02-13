@@ -8,7 +8,6 @@ import Dashboard from '../pages/Dashboard';
 
 const AppRoutes = () => {
 
-    // const [user2, setUser2] = useState();
 
     return (
         <Routes>
@@ -17,7 +16,7 @@ const AppRoutes = () => {
             </Route>
             <Route path='/' element={<Home/>}>
                
-                <Route index element={<Login setLoading={setLoading} loading={loading}/>}/>
+                <Route index element={<Login />}/>
                 <Route path='register' element={<Register/>}/>
                 
             </Route>
