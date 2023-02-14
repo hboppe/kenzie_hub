@@ -2,10 +2,8 @@ import Header from "../Header";
 import Main from './styles';
 import RegisterForm from './RegisterForm'
 
-
 const Register = () => {
     
-
     return (
         <>
             <Header buttonText='Voltar' path='/' headerClassName='withButton'/>

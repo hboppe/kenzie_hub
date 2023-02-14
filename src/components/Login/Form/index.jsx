@@ -6,16 +6,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import LoginFormSchema from "../../../validations/LoginFormSchema";
 
-
 const Form = () => {
 
     const {loginUser} = useContext(UserContext);
 
-
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(LoginFormSchema)
     });
-
 
     return (
         <StyledForm onSubmit={handleSubmit(loginUser)}>

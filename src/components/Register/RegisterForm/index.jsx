@@ -2,9 +2,7 @@ import { useForm } from "react-hook-form";
 import Form from "./styles"
 import {yupResolver} from '@hookform/resolvers/yup'
 import registerSchema from '../../../validations/RegisterFormSchema'
-import api from '../../../services/api.js'
 import {useNavigate} from 'react-router-dom'
-import {toast} from 'react-toastify';
 import Input from "../../Input";
 import Select from "../../Select";
 import { useContext } from "react";
@@ -12,13 +10,13 @@ import { UserContext } from "../../../contexts/UserContext";
 
 const RegisterForm = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(registerSchema)
     });
 
-    const {registerUser} = useContext(UserContext)
+    const {registerUser} = useContext(UserContext);
 
     const options = [
         {id: 1, value: 'Primeiro Módulo (Frontend iniciante)', text: 'Primeiro Modulo'},

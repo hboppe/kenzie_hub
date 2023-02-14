@@ -6,6 +6,4 @@ const LoginFormSchema = yup.object({
 
 })
 
-
-
 export default LoginFormSchema;

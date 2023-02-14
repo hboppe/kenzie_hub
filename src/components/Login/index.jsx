@@ -3,10 +3,8 @@ import Form from './Form';
 import { Link } from 'react-router-dom';
 import Header from '../Header';
 
-
 const Login = () => {
     
-
     return (
         <>
             <Header/>
@@ -18,9 +16,7 @@ const Login = () => {
                     <Link to='register'>Cadastre-se</Link>
             </section>
 
-            </Main>
-
-        
+            </Main>       
         </>
     )
 }

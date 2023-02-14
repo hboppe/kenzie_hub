@@ -1,13 +1,10 @@
 import {Routes, Route} from 'react-router-dom'
-import Header from '../components/Header';
 import Login from '../components/Login';
 import Home from '../pages/Home'
 import Register from '../components/Register'
-import { useState } from 'react';
 import Dashboard from '../pages/Dashboard';
 
 const AppRoutes = () => {
-
 
     return (
         <Routes>
@@ -21,8 +18,7 @@ const AppRoutes = () => {
                 
             </Route>
             <Route path='/dashboard' element={<Dashboard />}/>
-            
-            
+                        
         </Routes>
     )
 }

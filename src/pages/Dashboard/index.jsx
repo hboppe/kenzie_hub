@@ -1,74 +1,29 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useContext } from "react";
 import Header from "../../components/Header";
 import UserInfo from "../../components/UserInfo";
-import api from "../../services/api";
 import { toast } from "react-toastify";
 import Technologies from "../../components/Technologies";
+import { UserContext } from "../../contexts/UserContext";
 
 const Dashboard = () => {
 
-    const [loading, setLoading] = useState(false);
-    const [user, setUser] = useState({});
+    const {user, loading, navigate} = useContext(UserContext);
+
+    if(loading){
+
+        return <p>Carregando...</p>
+
+    } else if(!user){
+
+        toast.error('Você não tem permissao de acessar essa página.')
+        navigate(-1)
+        return 
+    }
 
     const logout = () => {
+
         localStorage.clear();
     }
-
-    const showToast = () => {
-        toast.error('Você não tem permissao de acessar essa página.', {
-            position: "top-right",
-            autoClose: 3000,
-        })
-    }
-    
-    const navigate = useNavigate()
-
-    useEffect(  () => {
-
-        const userId = JSON.parse(localStorage.getItem('@KenzieHub:userId'));
-       
-
-        const getUserInfos = async () => {
-
-            try {
-                setLoading(true)
-                const getUser =  await api.get(`/users/${userId}`);
-                const getUserResponse =  await getUser.data;
-                setUser(getUser.data)
-                // console.log({...getUser.data})
-                // console.log(user)
-
-
-
-                // setUser({...getUserResponse})
-
-                // console.log(getUserResponse)
-
-                // console.log(`entrou no TRY`, getUser.data)
-                
-            } catch (error) {
-                console.log(`Erro aqui`, error)
-                // if(error.response.status === 404){
-                    
-                //     navigate('/')
-                //     showToast()  
-                // }
-            } finally {
-                setLoading(false)
-                // console.log(user)
-            }
-        }
-
-        getUserInfos()
-
-    }, [])
-
-    if(loading) {
-        return <p>Carregando...</p>
-    }
-
-    
 
     return (
         <>
@@ -80,6 +35,7 @@ const Dashboard = () => {
                 <Technologies user={user} loading={loading}/>
             </>
             }
+            
         </>
     )
 }

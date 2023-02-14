@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import api from '../services/api'
 import { useNavigate } from "react-router-dom";
@@ -7,18 +7,24 @@ const UserContext = createContext({});
 
 const UserContextProvider = ({children}) => {
 
+    const [user, setUser] = useState(null);
+
+    const [loading, setLoading] = useState(true)
+
     const navigate = useNavigate();
 
     const loginUser = async (data) => {
+        setLoading(true)
         
         try {
             const response = await api.post('/sessions', data);
-            
-            localStorage.setItem('@KenzieHub:token', JSON.stringify(response.data.token))
-            localStorage.setItem('@KenzieHub:userId', JSON.stringify(response.data.user.id))
+
+            const {user: userInfo, token} = response.data
+
+            localStorage.setItem('@KenzieHub:token', token)
+            setUser(userInfo)
             navigate('dashboard')
             toast.success('Login realizado com sucesso')
-
 
         } catch (error) {
             
@@ -29,7 +35,10 @@ const UserContextProvider = ({children}) => {
                 console.log(error)
             }
 
+        } finally {
+            setLoading(false)
         }
+        
     }
 
     const registerUser = async (data) => {
@@ -49,12 +58,42 @@ const UserContextProvider = ({children}) => {
         }
     }
 
+    useEffect(() => {
 
+        const checkLocalStorage = async () => {
+            const token = localStorage.getItem('@KenzieHub:token') 
+            
+            if(!token){
+                setLoading(false)
+                return;
+            }
+            
+            try {
+                const responseCheckToken = await api.get('/profile', {
+                    headers:{ Authorization: `Bearer ${token}` }
+                })
+
+                setUser(responseCheckToken.data)
+
+            } catch (error) {
+                console.log(error)
+            } finally {
+                setLoading(false)
+
+            }
+        };
+
+        checkLocalStorage()
+
+    }, [])
 
     return (
         <UserContext.Provider value={{
             loginUser,
-            registerUser
+            registerUser, 
+            user,
+            loading, 
+            navigate
         }}>
             {children}
         </UserContext.Provider>

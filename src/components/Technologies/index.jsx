@@ -3,7 +3,6 @@ import Section from "./styles";
 
 const Technologies = ({user, loading}) => {   
 
-
     return (
         <Section>
             <div className="sectionContainer">
@@ -15,8 +14,7 @@ const Technologies = ({user, loading}) => {
                     {user && user.techs && user.techs.length !== 0 ? user.techs.map(item => <TechCard  key={item.id}props={item}/>)
                 
                     : <p>No momento, você nao possui tecnologias cadastradas.</p> }
-                    
-                
+                                    
                 </ul>
             </div>
 

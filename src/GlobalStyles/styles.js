@@ -29,8 +29,6 @@ const GlobalStyle = createGlobalStyle`
 
         --sucess: #3FE864;
         --negative: #E83F5B;
-
-
     }
 
     body { 
@@ -68,7 +66,6 @@ const GlobalStyle = createGlobalStyle`
         font-size: 0.75rem;
         font-style: italic;
     }
-
     
 `
 
