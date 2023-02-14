@@ -1,9 +1,20 @@
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 import TechCard from "../TechCard";
 import Section from "./styles";
 
-const Technologies = ({user, loading}) => {   
+const Technologies = ({user, loading}) => { 
+
+    const {navigate} = useContext(UserContext)
+    
+    if(!user){
+        return navigate(-1)
+    }
 
     return (
+        
+
         <Section>
             <div className="sectionContainer">
                 <div className="techContainer">

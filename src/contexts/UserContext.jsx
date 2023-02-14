@@ -74,6 +74,7 @@ const UserContextProvider = ({children}) => {
                 })
 
                 setUser(responseCheckToken.data)
+                navigate('dashboard')
 
             } catch (error) {
                 console.log(error)
