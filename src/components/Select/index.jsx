@@ -1,6 +1,7 @@
-import { forwardRef } from "react"
+import { forwardRef, useContext } from "react"
+import { TechContext } from "../../contexts/TechContext";
 
-const Select = ({selectName, label, options, error, onChange, defaultValue, ...rest}, ref) => {
+const Select = ({selectName, label, options, error, onChange, value, ...rest}, ref) => {
 
     const addOptions = () => {
         return (
@@ -11,7 +12,7 @@ const Select = ({selectName, label, options, error, onChange, defaultValue, ...r
     return (
         <div>
                 <label htmlFor={selectName}>{label}</label> 
-                <select id={selectName} {...rest} ref={ref} defaultValue={defaultValue} onChange={onChange}>
+                <select id={selectName} {...rest} ref={ref} onChange={onChange}>
 
                     {options && addOptions()}
 

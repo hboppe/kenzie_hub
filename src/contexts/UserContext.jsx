@@ -94,7 +94,8 @@ const UserContextProvider = ({children}) => {
             registerUser, 
             user,
             loading, 
-            navigate
+            navigate,
+            setUser
         }}>
             {children}
         </UserContext.Provider>

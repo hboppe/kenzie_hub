@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import { createContext, useState } from "react";
+import api from "../services/api";
+import { UserContext } from "./UserContext";
 
 const TechContext = createContext({});
 
@@ -7,6 +10,9 @@ const TechContextProvider = ({children}) => {
     const [showModal, setShowModal] = useState(false);
     const [editTech, setEditTech] = useState(null);
     const [selectedOption, setSelectedOption] = useState('');
+    const [techTitle, setTechTitle] = useState('');
+    const {user, setUser} = useContext(UserContext);
+    
 
     const handleSelectChange = (e) => {
         setSelectedOption(e.target.value)
@@ -22,6 +28,33 @@ const TechContextProvider = ({children}) => {
         setShowModal(false)
     }
 
+    const updateTechInfo = async (formData) => {
+
+        const token = localStorage.getItem('@KenzieHub:token');
+
+        try {
+            
+            const response = await api.put(`/users/techs/${editTech.id}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            
+            const updatedTechs = [...user.techs.map(tech => {
+                if(tech.id === editTech.id){
+                    return response.data;
+                }
+                return tech;
+            })];
+
+            setUser({...user, techs: updatedTechs})
+
+        } catch (error) {
+            // colocar toast
+            console.log(error)
+        } 
+    }
+
     return (
         <TechContext.Provider value={{
             setEditTech,
@@ -32,7 +65,10 @@ const TechContextProvider = ({children}) => {
             selectedOption,
             handleSelectChange,
             selectOptions,
-            setSelectedOption
+            setSelectedOption,
+            techTitle,
+            setTechTitle,
+            updateTechInfo
         }}>
             {children}
         </TechContext.Provider>

@@ -3,7 +3,7 @@ import { UserContext } from "../../contexts/UserContext";
 import TechCard from "../TechCard";
 import Section from "./styles";
 
-const Technologies = ({user, loading}) => { 
+const Technologies = ({user,}) => { 
 
     const {navigate} = useContext(UserContext)
     
