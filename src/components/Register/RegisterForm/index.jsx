@@ -2,19 +2,22 @@ import { useForm } from "react-hook-form";
 import Form from "./styles"
 import {yupResolver} from '@hookform/resolvers/yup'
 import registerSchema from '../../../validations/RegisterFormSchema'
-import {useNavigate} from 'react-router-dom'
 import Input from "../../Input";
 import Select from "../../Select";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../../contexts/UserContext";
 
 const RegisterForm = () => {
 
-    const navigate = useNavigate();
-
     const {register, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(registerSchema)
     });
+
+    const [selectedOption, setSelectedOption] = useState('');
+
+    const handleSelectChange = (e) => {
+        setSelectedOption(e.target.value)
+    }
 
     const {registerUser} = useContext(UserContext);
 
@@ -79,7 +82,8 @@ const RegisterForm = () => {
                 label='Selecionar um módulo'
                 selectName='course_module'
                 error={errors['course_module']?.message}
-                {...register('course_module')}/>
+                {...register('course_module')}
+                onChange={handleSelectChange}/>
 
             <button type="submit">Cadastrar</button>
         </Form>
