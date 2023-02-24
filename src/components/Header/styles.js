@@ -11,8 +11,7 @@ const StyledHeader = styled.header`
     &.withButton{
         padding: 1.25rem 0.625rem 2rem;
         justify-content: space-between;
-        /* margin-left: 10px;
-        margin-right: 10px; */
+
     }
 
     a {

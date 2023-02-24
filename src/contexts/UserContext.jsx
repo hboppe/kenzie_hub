@@ -70,7 +70,7 @@ const UserContextProvider = ({children}) => {
             
             try {
                 const responseCheckToken = await api.get('/profile', {
-                    headers:{ Authorization: `Bearer ${token}` }
+                    headers:{ Authorization: `Bearer ${token}`}
                 })
 
                 setUser(responseCheckToken.data)

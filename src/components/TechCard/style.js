@@ -9,6 +9,7 @@ const Li = styled.li`
 
     &:hover {
         background-color: var(--grey-1);
+        cursor: pointer;
     }
 
     &:hover > p.headline{
