@@ -53,9 +53,32 @@ const TechContextProvider = ({children}) => {
             toast.success('Tecnologia atualizada com sucesso.');
 
         } catch (error) {
-            // colocar toast
+            toast.error('Nao foi possível atualizar a tecnologia, por favor, tente novamente.')
             console.log(error)
         } 
+    }
+
+    const deleteTech = async () => {
+
+        const token = localStorage.getItem('@KenzieHub:token');
+
+        try {
+
+           const response = await api.delete(`/users/techs/${editTech.id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+           });
+
+           const updatedTech = user.techs.filter(tech => tech.id !== editTech.id);
+           setUser({...user, techs: updatedTech});
+           closeModal();
+           toast.success('Tecnologia deletada com sucesso.');
+
+        } catch (error) {
+            toast.error('Nao foi possível deletar a tecnologia atual, por favor, tente novamente.')
+            console.log(error)
+        }
     }
 
     return (
@@ -71,7 +94,8 @@ const TechContextProvider = ({children}) => {
             setSelectedOption,
             techTitle,
             setTechTitle,
-            updateTechInfo
+            updateTechInfo,
+            deleteTech
         }}>
             {children}
         </TechContext.Provider>

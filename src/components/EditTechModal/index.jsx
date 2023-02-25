@@ -13,7 +13,7 @@ import StyledButton from '../Button/style.js';
 
 const Modal = ({tech}) => {
 
-    const {closeModal, showModal, selectedOption, handleSelectChange, selectOptions, setSelectedOption, techTitle, setTechTitle, updateTechInfo} = useContext(TechContext);
+    const {closeModal, showModal, selectedOption, handleSelectChange, selectOptions, setSelectedOption, techTitle, setTechTitle, updateTechInfo, deleteTech} = useContext(TechContext);
 
     const {register, setValue, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(editTechSchema)
@@ -57,7 +57,8 @@ const Modal = ({tech}) => {
                
                 <div className='buttonsContainer'>
                     <StyledButton primaryNegative type="submit">Salvar alterações</StyledButton>
-                    <StyledButton>
+
+                    <StyledButton onClick={deleteTech} type='button'>
                         Excluir
                     </StyledButton>
                 </div>
