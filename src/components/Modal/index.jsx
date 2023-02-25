@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import editTechSchema from '../../validations/EditTechSchema.js';
 import { UserContext } from "../../contexts/UserContext";
+import { MdClose } from 'react-icons/md';
 
 
 const Modal = ({tech}) => {
@@ -29,9 +30,15 @@ const Modal = ({tech}) => {
     return (
 
         <StyledModal isOpen={showModal} onBackgroundClick={closeModal} beforeOpen={() => { setSelectedOption(tech.status); setTechTitle(tech.title)}} beforeClose={() => {setSelectedOption(''); setTechTitle('')}}>
-                <div>
-                    <h3>Tecnologia Detalhes</h3>
-                </div>
+                
+
+            <div className='titleContainer'>
+                <h3 className='title3'>Tecnologia Detalhes</h3>
+                <button className='closeModalButton' onClick={closeModal}> 
+                    <MdClose className='closeModalIcon'/>
+                </button>
+            </div>
+
             <form onSubmit={handleSubmit(updateTechInfo)}>
                 <Input inputName='title' 
                     label='Nome do projeto'
@@ -50,6 +57,7 @@ const Modal = ({tech}) => {
                 {errors?.status && <small>{errors.status.message}</small>}
                
                 <button type="submit">Salvar alteraçoes</button>
+                <button>Excluir</button>
                 
 
             </form>
