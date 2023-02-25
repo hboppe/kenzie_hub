@@ -21,10 +21,6 @@ const StyledForm = styled.form`
         background-color: var(--color-primary-focus);
     }
 
-
-    small {
-        color: var(--grey-1);
-    }
 `
 
 export default StyledForm;
