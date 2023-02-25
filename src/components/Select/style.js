@@ -24,6 +24,10 @@ const Div = styled.div`
         font-size: var(--headline);
     }
 
+    small{
+        color: var(--grey-1);
+    }
+
 
 `
 

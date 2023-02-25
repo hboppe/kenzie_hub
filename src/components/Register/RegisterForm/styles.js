@@ -22,9 +22,7 @@ const Form = styled.form`
         background-color: var(--color-primary-focus);
     }
 
-    small{
-        color: var(--grey-1);
-    }
+
 
 `
 

@@ -27,6 +27,10 @@ const Div = styled.div`
 
     ${defaultInputForm}
 
+    small{
+        color: var(--grey-1);
+    }
+
 `
 
 export default Div;
