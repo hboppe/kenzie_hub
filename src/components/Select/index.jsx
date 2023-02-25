@@ -1,5 +1,6 @@
 import { forwardRef, useContext } from "react"
 import { TechContext } from "../../contexts/TechContext";
+import Div from "./style";
 
 const Select = ({selectName, label, options, error, onChange, value, ...rest}, ref) => {
 
@@ -10,15 +11,15 @@ const Select = ({selectName, label, options, error, onChange, value, ...rest}, r
     };
 
     return (
-        <div>
-                <label htmlFor={selectName}>{label}</label> 
-                <select id={selectName} {...rest} ref={ref} onChange={onChange}>
+        <Div>
+            <label htmlFor={selectName}>{label}</label> 
+            <select id={selectName} {...rest} ref={ref} onChange={onChange}>
 
-                    {options && addOptions()}
+                {options && addOptions()}
 
-                </select>
-                {error && <small>{error}</small>}
-        </div>
+            </select>
+            {error && <small>{error}</small>}
+        </Div>
     )
 }
 
