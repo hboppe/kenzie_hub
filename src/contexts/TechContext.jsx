@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
 import api from "../services/api";
 import { UserContext } from "./UserContext";
 
@@ -47,7 +48,9 @@ const TechContextProvider = ({children}) => {
                 return tech;
             })];
 
-            setUser({...user, techs: updatedTechs})
+            setUser({...user, techs: updatedTechs});
+            closeModal();
+            toast.success('Tecnologia atualizada com sucesso.');
 
         } catch (error) {
             // colocar toast
