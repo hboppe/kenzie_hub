@@ -6,12 +6,7 @@ const Div = styled.div`
 
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    
-    
-    label {
-        font-size: var(--headline);
-    }
+    gap: .5rem;   
 
     input {
         padding: 10px 13px;

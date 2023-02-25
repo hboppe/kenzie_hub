@@ -8,13 +8,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import editTechSchema from '../../validations/EditTechSchema.js';
 import { UserContext } from "../../contexts/UserContext";
 import { MdClose } from 'react-icons/md';
+import StyledButton from '../Button/style.js';
 
 
 const Modal = ({tech}) => {
 
     const {closeModal, showModal, selectedOption, handleSelectChange, selectOptions, setSelectedOption, techTitle, setTechTitle, updateTechInfo} = useContext(TechContext);
-
-    const {setUser} = useContext(UserContext) // context to user 
 
     const {register, setValue, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(editTechSchema)
@@ -56,8 +55,12 @@ const Modal = ({tech}) => {
                 />
                 {errors?.status && <small>{errors.status.message}</small>}
                
-                <button type="submit">Salvar alteraçoes</button>
-                <button>Excluir</button>
+                <div className='buttonsContainer'>
+                    <StyledButton primaryNegative type="submit">Salvar alterações</StyledButton>
+                    <StyledButton>
+                        Excluir
+                    </StyledButton>
+                </div>
                 
 
             </form>

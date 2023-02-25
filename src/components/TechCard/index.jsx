@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { TechContext } from "../../contexts/TechContext";
-import Modal from "../Modal";
+import EditTechModal from "../EditTechModal";
 import Li from "./style";
 
 const TechCard = ({tech}) => {
@@ -19,7 +19,7 @@ const TechCard = ({tech}) => {
                 <p className="headline">{tech.status}</p>
             </Li>
 
-            {editTech && <Modal tech={editTech}/>}
+            {editTech && <EditTechModal tech={editTech}/>}
             
         </>
     )

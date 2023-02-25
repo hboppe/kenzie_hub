@@ -20,10 +20,6 @@ const Div = styled.div`
         outline: 1px solid var(--grey-0);
     }
 
-    label {
-        font-size: var(--headline);
-    }
-
     small{
         color: var(--grey-1);
     }

@@ -4,7 +4,7 @@ import Div from "./style";
 const Input = ({inputName, value, label, type, placeholder, error, ...rest}, ref) => {
     return (
         <Div>
-            <label htmlFor={inputName}>{label}</label>
+            <label htmlFor={inputName} className='headline'>{label}</label>
             <input type={type} placeholder={placeholder} ref={ref} {...rest} value={value}/>
             {error && <small>{error}</small>}
             

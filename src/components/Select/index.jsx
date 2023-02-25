@@ -12,7 +12,7 @@ const Select = ({selectName, label, options, error, onChange, value, ...rest}, r
 
     return (
         <Div>
-            <label htmlFor={selectName}>{label}</label> 
+            <label htmlFor={selectName} className='headline'>{label}</label> 
             <select id={selectName} {...rest} ref={ref} onChange={onChange}>
 
                 {options && addOptions()}
