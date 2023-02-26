@@ -59,9 +59,9 @@ const UserContextProvider = ({children}) => {
     }
 
     useEffect(() => {
+        const token = localStorage.getItem('@KenzieHub:token') 
 
         const checkLocalStorage = async () => {
-            const token = localStorage.getItem('@KenzieHub:token') 
             
             if(!token){
                 setLoading(false)
@@ -77,6 +77,7 @@ const UserContextProvider = ({children}) => {
                 navigate('dashboard')
 
             } catch (error) {
+                toast.error('Nao foi possível realizar o login. Tente novamente.')
                 console.log(error)
             } finally {
                 setLoading(false)

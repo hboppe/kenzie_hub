@@ -5,7 +5,7 @@ import Input from '../Input/index.jsx';
 import Select from '../Select/index.jsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import editAndAddTechSchema from '../../validations/editAndAddTechSchema.js';
+import editAndAddTechSchema from '../../validations/EditAndAddTechSchema.js';
 import { MdClose } from 'react-icons/md';
 import StyledButton from '../Button/style.js';
 import Button from '../Button/style';
