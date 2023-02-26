@@ -9,7 +9,18 @@ const UserContextProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+
+    const [showPassword, setShowPassword] = useState('password');
+
+    const toggleShowPassword = () => {
+        if(showPassword === 'text') {
+            setShowPassword('password')
+        } else {
+            setShowPassword('text')
+
+        }
+    }
 
     const navigate = useNavigate();
 
@@ -96,7 +107,9 @@ const UserContextProvider = ({children}) => {
             user,
             loading, 
             navigate,
-            setUser
+            setUser,
+            showPassword,
+            toggleShowPassword
         }}>
             {children}
         </UserContext.Provider>

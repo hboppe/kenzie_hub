@@ -28,8 +28,8 @@ const Form = () => {
             <Input inputName='password' 
                 placeholder='Digite sua senha aqui'
                 label='Senha' 
-                type='password'
                 error={errors.password?.message}
+                passwordButton={true}
                 {...register('password')}
             />
 

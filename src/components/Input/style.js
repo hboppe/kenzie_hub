@@ -6,6 +6,7 @@ const Div = styled.div`
     display: flex;
     flex-direction: column;
     gap: .5rem;   
+    position: relative;
 
     input {
         padding: 10px 13px;
@@ -23,6 +24,13 @@ const Div = styled.div`
 
     small{
         color: var(--grey-1);
+    }
+
+    .showHidePassword {
+        cursor: pointer;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
     }
 
 `
