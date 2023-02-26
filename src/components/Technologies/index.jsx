@@ -8,7 +8,7 @@ import Section from "./styles";
 const Technologies = ({user}) => { 
 
     const {navigate} = useContext(UserContext)
-    const {openAddNewTechModal, addNewTech} = useContext(TechContext)
+    const {openAddNewTechModal, showAddNewTechModal} = useContext(TechContext)
     
     if(!user){
         return navigate(-1)
@@ -19,7 +19,7 @@ const Technologies = ({user}) => {
         <Section>
             <div className="sectionContainer">
                 <div className="techContainer">
-                    <h2>Technologias</h2>
+                    <h2>Tecnologias</h2>
                     <button onClick={() => openAddNewTechModal()}>+</button>
                 </div>
                 <ul>
@@ -29,7 +29,7 @@ const Technologies = ({user}) => {
                                     
                 </ul>
             </div>
-            {addNewTech && <AddTechModal/>}
+            {showAddNewTechModal && <AddTechModal/>}
         </Section>
     )
 }

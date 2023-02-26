@@ -13,7 +13,7 @@ const TechContextProvider = ({children}) => {
     const [selectedOption, setSelectedOption] = useState('');
     const [techTitle, setTechTitle] = useState('');
     const {user, setUser} = useContext(UserContext);
-    const [addNewTech, setAddNewTech] = useState(false);
+    const [showAddNewTechModal, setShowAddNewTechModal] = useState(false);
     
 
     const handleSelectChange = (e) => {
@@ -83,12 +83,44 @@ const TechContextProvider = ({children}) => {
     }
 
     const openAddNewTechModal = () => {
-        setAddNewTech(true)
-        console.log('deu bom')
+        setShowAddNewTechModal(true)
     }
 
     const closeAddNewTechModal = () => {
-        setAddNewTech(false)
+        setShowAddNewTechModal(false)
+    }
+
+    const addNewTech = async (formData) => {
+        const token = localStorage.getItem('@KenzieHub:token');
+
+        try {
+            const response = await api.post('/users/techs', formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            const updatedTechs = [...user.techs, response.data];
+            setUser({...user, techs: updatedTechs})
+            closeAddNewTechModal()
+            toast.success('Cadastro de nova tecnologia realizado com sucesso.')
+            
+            
+        } catch (error) {
+            if(error.response.data.message == 'User Already have this technology created you can only update it') {
+
+                closeAddNewTechModal()
+                toast.error('Tecnologia já cadastrada. Por favor, insira outro nome.')
+            } else {
+                toast.error('Houve um erro. Por favor, tente novamente')
+                closeAddNewTechModal()
+
+
+            }
+
+        }
+
+
     }
 
     return (
@@ -106,9 +138,10 @@ const TechContextProvider = ({children}) => {
             setTechTitle,
             updateTechInfo,
             deleteTech,
-            addNewTech,
+            showAddNewTechModal,
             openAddNewTechModal,
-            closeAddNewTechModal
+            closeAddNewTechModal,
+            addNewTech
         }}>
             {children}
         </TechContext.Provider>

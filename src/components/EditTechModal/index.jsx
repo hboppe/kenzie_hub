@@ -5,9 +5,10 @@ import Input from '../Input/index.jsx';
 import Select from '../Select/index.jsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import editTechSchema from '../../validations/EditTechSchema.js';
+import editAndAddTechSchema from '../../validations/editAndAddTechSchema.js';
 import { MdClose } from 'react-icons/md';
 import StyledButton from '../Button/style.js';
+import Button from '../Button/style';
 
 
 const EditTechModal = ({tech}) => {
@@ -15,7 +16,7 @@ const EditTechModal = ({tech}) => {
     const {closeModal, showEditModal, selectedOption, handleSelectChange, selectOptions, setSelectedOption, techTitle, setTechTitle, updateTechInfo, deleteTech} = useContext(TechContext);
 
     const {register, setValue, handleSubmit, formState: {errors}} = useForm({
-        resolver: yupResolver(editTechSchema)
+        resolver: yupResolver(editAndAddTechSchema)
     })
 
     useEffect(() => {
@@ -57,9 +58,9 @@ const EditTechModal = ({tech}) => {
                 <div className='buttonsContainer'>
                     <StyledButton primaryNegative type="submit">Salvar alterações</StyledButton>
 
-                    <StyledButton onClick={deleteTech} type='button'>
+                    <Button onClick={deleteTech} type='button'>
                         Excluir
-                    </StyledButton>
+                    </Button>
                 </div>
                 
 
