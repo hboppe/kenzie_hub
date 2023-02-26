@@ -19,8 +19,6 @@ const Main = styled.main`
 
     section > p.paragAccount {
         color: var(--grey-1);
-        
-
     }
 
     section > a {
@@ -38,7 +36,4 @@ const Main = styled.main`
         background-color: var(--grey-2);
     }
 `
-
-
-
 export default Main;

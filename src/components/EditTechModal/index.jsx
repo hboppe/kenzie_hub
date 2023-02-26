@@ -24,13 +24,11 @@ const EditTechModal = ({tech}) => {
         setValue('title', techTitle);
 
     }, [selectedOption, techTitle]);
-
-    
+ 
     return (
 
         <StyledModal isOpen={showEditModal} onBackgroundClick={closeModal} beforeOpen={() => { setSelectedOption(tech.status); setTechTitle(tech.title)}} beforeClose={() => {setSelectedOption(''); setTechTitle('')}}>
                 
-
             <div className='titleContainer'>
                 <h3 className='title3'>Tecnologia Detalhes</h3>
                 <button className='closeModalButton' onClick={closeModal}> 
@@ -63,12 +61,10 @@ const EditTechModal = ({tech}) => {
                     </Button>
                 </div>
                 
-
             </form>
             
         </StyledModal>        
     )
-
 }
 
 export default EditTechModal;

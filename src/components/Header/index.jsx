@@ -10,8 +10,7 @@ const Header = ({buttonText, path, handleClick, headerClassName, linkClassName})
             {buttonText && (<Link className={linkClassName} onClick={handleClick} to={path}>{buttonText}</Link>)}
 
         </StyledHeader>
-
-        
+       
     )
 }
 

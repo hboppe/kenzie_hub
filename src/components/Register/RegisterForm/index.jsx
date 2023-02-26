@@ -83,7 +83,7 @@ const RegisterForm = () => {
                 selectName='course_module'
                 error={errors['course_module']?.message}
                 {...register('course_module')}
-                onChange={handleSelectChange}/>
+                />
 
             <button type="submit">Cadastrar</button>
         </Form>

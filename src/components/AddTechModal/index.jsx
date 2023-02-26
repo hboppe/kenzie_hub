@@ -37,7 +37,6 @@ const AddTechModal = () => {
                     onChange={handleSelectChange}
                     error={errors.status?.message}
                     {...register('status')}
-
                 />
                 <Button primary type="submit" >Cadastrar Tecnologia</Button>
             </form>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { defaultInputForm } from "../../GlobalStyles/styles";
 
-
 const Div = styled.div`
 
     display: flex;

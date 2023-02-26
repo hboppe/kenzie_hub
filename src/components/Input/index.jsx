@@ -2,6 +2,7 @@ import { forwardRef } from "react";
 import Div from "./style";
 
 const Input = ({inputName, value, label, type, placeholder, error, ...rest}, ref) => {
+    
     return (
         <Div>
             <label htmlFor={inputName} className='headline'>{label}</label>

@@ -20,7 +20,6 @@ const StyledForm = styled.form`
         cursor: pointer;
         background-color: var(--color-primary-focus);
     }
-
 `
 
 export default StyledForm;
