@@ -1,5 +1,4 @@
-import { forwardRef, useContext } from "react"
-import { TechContext } from "../../contexts/TechContext";
+import { forwardRef } from "react"
 import Div from "./style";
 
 const Select = ({selectName, label, options, error, onChange, value, ...rest}, ref) => {

@@ -4,14 +4,12 @@ const Section = styled.section`
     color: var(--grey-0);  
     padding: 0px 0.75rem;
     
-
     div.sectionContainer {
         display: flex;
         flex-direction: column;
         gap: 20px;
         max-width: 780px;
         margin: 0 auto;
-
     }
     
     div.techContainer {

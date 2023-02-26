@@ -15,10 +15,6 @@ const RegisterForm = () => {
 
     const [selectedOption, setSelectedOption] = useState('');
 
-    const handleSelectChange = (e) => {
-        setSelectedOption(e.target.value)
-    }
-
     const {registerUser} = useContext(UserContext);
 
     const options = [

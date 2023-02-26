@@ -13,7 +13,6 @@ const Div = styled.div`
         background-color: #343B41;
         border: none;
         color: var(--grey-0);
-
     }
 
     select:focus{
@@ -23,7 +22,6 @@ const Div = styled.div`
     small{
         color: var(--grey-1);
     }
-
 
 `
 

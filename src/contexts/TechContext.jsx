@@ -15,7 +15,6 @@ const TechContextProvider = ({children}) => {
     const {user, setUser} = useContext(UserContext);
     const [showAddNewTechModal, setShowAddNewTechModal] = useState(false);
     
-
     const handleSelectChange = (e) => {
         setSelectedOption(e.target.value)
     }

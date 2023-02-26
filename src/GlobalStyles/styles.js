@@ -108,11 +108,9 @@ const defaultModal = css`
         justify-content: space-between;
         align-items: center;
         border-radius: 4px 4px 0px 0px;
-
     }
 
-    .closeModalButton {
-        
+    .closeModalButton {        
         background-color: transparent;
         border: none;
         cursor: pointer;
