@@ -3,7 +3,6 @@ import { defaultModal } from "../../GlobalStyles/styles";
 
 const StyledModal = Modal.styled`
     ${defaultModal}
-   
 `
 
 export default StyledModal;

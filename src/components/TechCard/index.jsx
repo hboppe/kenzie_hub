@@ -5,11 +5,11 @@ import Li from "./style";
 
 const TechCard = ({tech}) => {
     
-    const {setEditTech, editTech, setShowModal} = useContext(TechContext);
+    const {setEditTech, editTech, setShowEditModal} = useContext(TechContext);
 
     const editTechnology =  () => {
         setEditTech(tech);
-        setShowModal(true);
+        setShowEditModal(true);
     }
     
     return (

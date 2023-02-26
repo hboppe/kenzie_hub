@@ -8,11 +8,12 @@ const TechContext = createContext({});
 
 const TechContextProvider = ({children}) => {
 
-    const [showModal, setShowModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
     const [editTech, setEditTech] = useState(null);
     const [selectedOption, setSelectedOption] = useState('');
     const [techTitle, setTechTitle] = useState('');
     const {user, setUser} = useContext(UserContext);
+    const [addNewTech, setAddNewTech] = useState(false);
     
 
     const handleSelectChange = (e) => {
@@ -26,7 +27,7 @@ const TechContextProvider = ({children}) => {
     ]
 
     const closeModal = () => {
-        setShowModal(false)
+        setShowEditModal(false)
     }
 
     const updateTechInfo = async (formData) => {
@@ -81,13 +82,22 @@ const TechContextProvider = ({children}) => {
         }
     }
 
+    const openAddNewTechModal = () => {
+        setAddNewTech(true)
+        console.log('deu bom')
+    }
+
+    const closeAddNewTechModal = () => {
+        setAddNewTech(false)
+    }
+
     return (
         <TechContext.Provider value={{
             setEditTech,
             editTech,
             closeModal,
-            showModal,
-            setShowModal,
+            showEditModal,
+            setShowEditModal,
             selectedOption,
             handleSelectChange,
             selectOptions,
@@ -95,7 +105,10 @@ const TechContextProvider = ({children}) => {
             techTitle,
             setTechTitle,
             updateTechInfo,
-            deleteTech
+            deleteTech,
+            addNewTech,
+            openAddNewTechModal,
+            closeAddNewTechModal
         }}>
             {children}
         </TechContext.Provider>

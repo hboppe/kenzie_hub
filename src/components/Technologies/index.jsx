@@ -1,11 +1,14 @@
 import { useContext } from "react";
+import { TechContext } from "../../contexts/TechContext";
 import { UserContext } from "../../contexts/UserContext";
+import AddTechModal from "../AddTechModal";
 import TechCard from "../TechCard";
 import Section from "./styles";
 
 const Technologies = ({user}) => { 
 
     const {navigate} = useContext(UserContext)
+    const {openAddNewTechModal, addNewTech} = useContext(TechContext)
     
     if(!user){
         return navigate(-1)
@@ -17,7 +20,7 @@ const Technologies = ({user}) => {
             <div className="sectionContainer">
                 <div className="techContainer">
                     <h2>Technologias</h2>
-                    <button>+</button>
+                    <button onClick={() => openAddNewTechModal()}>+</button>
                 </div>
                 <ul>
                     {user && user.techs && user.techs.length !== 0 ? user.techs.map(item => <TechCard  key={item.id} tech={item}/>)
@@ -26,7 +29,7 @@ const Technologies = ({user}) => {
                                     
                 </ul>
             </div>
-
+            {addNewTech && <AddTechModal/>}
         </Section>
     )
 }

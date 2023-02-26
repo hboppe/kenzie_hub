@@ -6,14 +6,13 @@ import Select from '../Select/index.jsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import editTechSchema from '../../validations/EditTechSchema.js';
-import { UserContext } from "../../contexts/UserContext";
 import { MdClose } from 'react-icons/md';
 import StyledButton from '../Button/style.js';
 
 
-const Modal = ({tech}) => {
+const EditTechModal = ({tech}) => {
 
-    const {closeModal, showModal, selectedOption, handleSelectChange, selectOptions, setSelectedOption, techTitle, setTechTitle, updateTechInfo, deleteTech} = useContext(TechContext);
+    const {closeModal, showEditModal, selectedOption, handleSelectChange, selectOptions, setSelectedOption, techTitle, setTechTitle, updateTechInfo, deleteTech} = useContext(TechContext);
 
     const {register, setValue, handleSubmit, formState: {errors}} = useForm({
         resolver: yupResolver(editTechSchema)
@@ -28,7 +27,7 @@ const Modal = ({tech}) => {
     
     return (
 
-        <StyledModal isOpen={showModal} onBackgroundClick={closeModal} beforeOpen={() => { setSelectedOption(tech.status); setTechTitle(tech.title)}} beforeClose={() => {setSelectedOption(''); setTechTitle('')}}>
+        <StyledModal isOpen={showEditModal} onBackgroundClick={closeModal} beforeOpen={() => { setSelectedOption(tech.status); setTechTitle(tech.title)}} beforeClose={() => {setSelectedOption(''); setTechTitle('')}}>
                 
 
             <div className='titleContainer'>
@@ -71,4 +70,4 @@ const Modal = ({tech}) => {
 
 }
 
-export default Modal;
+export default EditTechModal;
