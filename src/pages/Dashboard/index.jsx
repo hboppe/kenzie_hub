@@ -23,6 +23,7 @@ const Dashboard = () => {
     const logout = () => {
 
         localStorage.clear();
+        toast.success('Logout realizado com sucesso.')
     }
 
     return (
