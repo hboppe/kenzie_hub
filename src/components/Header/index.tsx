@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/Logo.svg'
+import Logo from '../../assets/Logo.svg'; // ver esse erro no /pergunta
 import StyledHeader from './styles';
 
-const Header = ({buttonText, path, handleClick, headerClassName, linkClassName}) => {
+interface IHeaderProps {
+  buttonText?: string;
+  path?: string;
+  handleClick?: () => void;
+  headerClassName: string;
+  linkClassName?: string;
+}
+
+const Header = ({buttonText, path='', handleClick, headerClassName, linkClassName}: IHeaderProps) => {
 
     return (
         <StyledHeader className={headerClassName}>

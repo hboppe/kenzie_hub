@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import editAndAddTechSchema from '../../validations/EditAndAddTechSchema.js';
 import { MdClose } from 'react-icons/md';
-import StyledButton from '../Button/style.js';
+import StyledButton from '../Button/style.ts';
 import Button from '../Button/style';
 
 

@@ -1,6 +1,12 @@
-import styled from "styled-components";
+import { ButtonHTMLAttributes } from "react";
+import styled, { ThemedStyledProps } from "styled-components";
 
-const Button = styled.button`
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+  primary?: string;
+  primaryNegative?: string;
+}
+
+const Button = styled.button<ThemedStyledProps<IButtonProps, any>>`
     background-color: ${props => props.primaryNegative ? 'var(--color-primary-Negative)' 
         : props.primary ? 'var(--color-primary)' : 'var(--grey-1)'};
     color: var(--grey-0);
