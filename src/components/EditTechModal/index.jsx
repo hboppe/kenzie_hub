@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { TechContext } from '../../contexts/TechContext.jsx';
 import StyledModal from './style.js';
-import Input from '../Input/index.jsx';
+import Input from '../Input/index.tsx';
 import Select from '../Select/index.jsx';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';

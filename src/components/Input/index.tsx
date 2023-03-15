@@ -1,9 +1,19 @@
-import { forwardRef, useContext, useState } from "react";
+import { forwardRef, InputHTMLAttributes, useContext, useState } from "react";
 import Div from "./style";
 import {AiFillEye, AiFillEyeInvisible} from 'react-icons/ai'
 import { UserContext } from "../../contexts/UserContext";
 
-const Input = ({inputName, value, label, type, placeholder, error, passwordButton, ...rest}, ref) => {
+interface IInputProps extends InputHTMLAttributes<HTMLInputElement>{
+  inputName: string;
+  value?: string;
+  label: string;
+  error: string | undefined;
+  passwordButton?: boolean;
+  type?: 'text' | 'password';
+  
+}
+
+const Input = forwardRef<HTMLInputElement, IInputProps>(({inputName, value, label, type, placeholder, error, passwordButton, ...rest}, ref) => {
 
     const {showPassword, toggleShowPassword} = useContext(UserContext);
    
@@ -19,6 +29,6 @@ const Input = ({inputName, value, label, type, placeholder, error, passwordButto
             {passwordButton && showPassword === 'password'&& <AiFillEye className="showHidePassword" onClick={toggleShowPassword}/>}
         </Div>
     )
-}
+})
 
-export default forwardRef(Input);
+export default (Input);
